@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Topper from "../../Components/Topper/Topper";
+import { Grid, Row, Col } from 'react-bootstrap';
+import Nav from "../../Components/Nav/Nav";
 
 class Board extends Component {
 
@@ -7,15 +10,20 @@ class Board extends Component {
         this.state = {
             poop: "Tada!",
         };
-
     };
 
-    render(props) {
+    render() {
         return (
-            <div>
-                <img src={require("../../Data/gotlogo.png")} alt="got"/>
-                <img src={require("../../Data/deadpool.png")} alt="dp"/>
-            </div>
+            <Grid>
+            <Nav/>
+                <Topper />
+                <Row>
+                    <Col xs={12}>
+                        NAmes here
+                    </Col>
+                </Row>
+            </Grid>
+
         );
     };
 };
