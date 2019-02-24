@@ -5,8 +5,8 @@ const Topper = () => (
     <Row>
         <Col xs={12}>
             <Jumbotron className="text-center">
-                <Image src={require("../../Data/gotlogo.png")} alt="got" />
-                <Image src={require("../../Data/deadpool.png")} alt="dp" />
+                <Image style={{marginRight: "auto", marginLeft: "auto"}} src={require("../../Data/gotlogo.png")} alt="got" />
+                <Image style={{marginRight: "auto", marginLeft: "auto"}} src={require("../../Data/deadpool.png")} alt="dp" />
             </Jumbotron>
         </Col>
     </Row>

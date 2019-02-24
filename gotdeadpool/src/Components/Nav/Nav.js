@@ -1,43 +1,20 @@
 import React from 'react';
-import { Navbar } from "react-bootstrap";
+import "./Nav.css";
+import { Navbar, Image} from "react-bootstrap";
 
 const Nav = (props) => (
-    // <Navbar>
-    //     <Navbar.Header>
-    //         <Navbar.Brand >
-    //             Game of Thrones Deadpool
-    //         </Navbar.Brand>
-    //         <Navbar.Toggle />
-    //     </Navbar.Header>
-    //     <Navbar.Collapse >
-    //         <Navbar.Text >
-    //             {/* {props.children} */}
-    //         </Navbar.Text>
-    //     </Navbar.Collapse>
-    // </Navbar>
-
-    <Navbar>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+    <Navbar style={{ height: 75 }}>
+        <Navbar.Brand>
+        {/* <Image style={{width:75, height: 90}} src={require("../../Data/dpthrone.png")} alt="gotdp" /> */}
+        Nick's GoT Deadpoool
+        </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-                Signed in as: <a href="#login">Mark Otto</a>
-            </Navbar.Text>
+        <Navbar.Collapse>
+            <div style={{ float: "right" }}>
+                {props.children}
+            </div>
         </Navbar.Collapse>
     </Navbar>
-
-    // <Navbar>
-    //     <Navbar.Brand>Game of Thrones Deadpool</Navbar.Brand>
-    //     <Navbar.Toggle />
-    //     <Navbar.Collapse className="justify-content-end">
-    //         <Navbar.Text>
-    //             Signed in as: 
-    //             {/* {props.user} */}
-    //             {props.children}
-    //         </Navbar.Text>
-    //     </Navbar.Collapse>
-    // </Navbar>
-
-)
+);
 
 export default Nav
