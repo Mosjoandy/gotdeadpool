@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Topper from "../../Components/Topper/Topper";
-import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 import characters from "../../Data/characters.json";
-import firebase from "../../Utilities/firebase";
+// import firebase from "../../Utilities/firebase";
 
 class Pool extends Component {
 
@@ -10,25 +10,33 @@ class Pool extends Component {
         super(props)
         this.state = {
             characters: characters,
+            selection: ["Jon Snow", "Gilly"],
             show: false,
         };
-        // this.handleShow = this.handleShow.bind(this);
-        // this.handleClose = this.handleClose.bind(this);
+        this.sendBack = this.sendBack.bind(this);
+        this.moveOver = this.moveOver.bind(this);
     };
 
-    // handleClose() {
-    //     // Modal close function
-    //     this.setState({
-    //         show: false,
-    //     });
-    // };
 
-    // handleShow() {
-    //     // Modal show function
-    //     this.setState({
-    //         show: true
-    //     });
-    // };
+    sendBack() {
+        console.log("poop here")
+        // move character back into original json
+        // maybe instead of importing json as objects, convert to an array?
+    };
+
+    moveOver(characters) {
+        // Sends a selected character to the opposite column to be submitted for the deadpool
+        console.log(characters.id)
+        for (var i = 0; i < this.state.characters.length; i++) {
+            // console.log(i)
+            if (characters.id === (i + 1)) {
+                var match = characters.name
+                console.log(match)
+                // move character match into a new array
+                // selection.push(match)
+            };
+        };
+    };
 
     render() {
 
@@ -36,23 +44,30 @@ class Pool extends Component {
             <Grid>
                 <Topper />
                 <Row>
-                    <Col xs={3}>
-                        <Panel>
-                            <Panel.Body>
-                                {this.props.userID}
+                    <Col xs={6}>
 
-                                {this.state.characters.map(characters => (
-                                    <div key={characters.id}>
-                                        <Button bsStyle="default" style={{ marginBottom: 5 }} onClick={}>
-                                            {characters.name}
-                                        </Button>
-                                    </div>
+                        {this.props.userID}
 
-                                ))}
+                        {this.state.characters.map(characters => (
+                            <div key={characters.id}>
+                                <Button bsStyle="default" style={{ marginBottom: 5 }} onClick={() => { this.moveOver(characters) }}>
+                                    {characters.name}
+                                </Button>
+                            </div>
 
-                            </Panel.Body>
-                        </Panel>
+                        ))}
                     </Col>
+
+                    <Col xs={6} className="text-right">
+                        {this.state.selection.map(index => (
+                            <div key={index}>
+                                <Button bsStyle="success" style={{ marginBottom: 5 }} onClick={() => { this.sendBack() }}>
+                                    {index}
+                                </Button>
+                            </div>
+                        ))}
+                    </Col>
+
                 </Row>
             </Grid>
         );
@@ -60,8 +75,3 @@ class Pool extends Component {
 };
 
 export default Pool;
-
-{/* <li key={characters.id}>
-                                            {characters.name}
-                                           
-                                       </li> */}

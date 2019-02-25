@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Nav.css";
-import { Navbar, Image} from "react-bootstrap";
+import { Navbar} from "react-bootstrap";
 
 const Nav = (props) => (
     <Navbar style={{ height: 75 }}>
