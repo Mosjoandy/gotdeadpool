@@ -16,4 +16,4 @@ console.log("start your engines!");
 
 export default firebase
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const auth = firebase.auth();
+export const auth = firebase.auth(); 
