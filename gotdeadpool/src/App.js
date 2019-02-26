@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 import { Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from "./Components/Nav/Nav"
 import { auth, googleProvider } from "./Utilities/firebase"
 
 import Pool from "./Pages/Pool/Pool";
+import Nav from "./Components/Nav/Nav"
+import Footer from "./Components/Footer/Footer";
 
 class App extends Component {
 
@@ -55,20 +56,22 @@ class App extends Component {
             {
               this.state.userExists === true ?
                 <div style={{ display: "inline-block", width: 200 }}>
-                  <p style={{float:"right"}}>Signed in as: {this.state.userName}</p>
-                  <Button style={{float:"right"}} onClick={this.logout}>Logout</Button>
+                  <p style={{ float: "right" }}>Signed in as: {this.state.userName}</p>
+                  <Button style={{ float: "right" }} onClick={this.logout}>Logout</Button>
                 </div>
                 :
                 <div style={{ display: "inline-block", width: 200 }}>
-                  <p style={{float:"right"}}> Please sign in for access</p>
-                  <Button style={{float:"right"}} onClick={this.login}>Login</Button>
+                  <p style={{ float: "right" }}> Please sign in for access</p>
+                  <Button style={{ float: "right" }} onClick={this.login}>Login</Button>
                 </div>
             }
           </Nav>
           <Switch>
             <Route exact path="/" render={(props) => <Pool userID={this.state.userID} />} />
           </Switch>
+          <Footer />
         </div>
+
       </Router>
     );
   };
