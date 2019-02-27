@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Footer.css";
 import { Grid, Row, Col } from 'react-bootstrap';
 
 const Footer = () => (
