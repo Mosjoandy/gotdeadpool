@@ -3,6 +3,7 @@ import "./App.css";
 import { Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth, googleProvider } from "./Utilities/firebase"
+import firebase from "./Utilities/firebase";
 
 import Pool from "./Pages/Pool/Pool";
 import Nav from "./Components/Nav/Nav"
@@ -10,13 +11,63 @@ import Footer from "./Components/Footer/Footer";
 
 class App extends Component {
 
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     userID: null,
+  //     userName: null,
+  //     userExists: false,
+  //   };
+  //   this.login = this.login.bind(this);
+  //   this.logout = this.logout.bind(this);
+  // };
+
+  // logout() {
+  //   auth.signOut()
+  //     .then(() => {
+  //       this.setState({
+  //         user: null,
+  //         userExists: null
+  //       });
+  //     });
+  // };
+
+  // login() {
+  //   auth.signInWithPopup(googleProvider)
+  //     .then((result) => {
+  //       this.setState({
+  //         userExists: true,
+  //         userName: result.user.displayName,
+  //         userID: result.user.uid,
+  //       });
+  //       firebase.database().ref("users/" + result.user.uid).set({
+  //         userID: result.user.uid,
+  //         userName: result.user.displayName
+  //       });
+  //     });
+  // };
+
+  // componentWillUpdate() {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       // this.setState({ user });
+  //       JSON.stringify(user)
+  //       console.log("compoonent mount app level: " + user.uid)
+  //       this.setState({
+  //         userExists: true,
+  //         userID: user.uid,
+  //         userName: user.displayName
+  //       })
+  //     };
+  //   });
+  // };
+
   constructor() {
     super();
     this.state = {
-      userID: null,
-      userName: null,
+      username: '',
+      user: null,
       userExists: false,
-      userPhoto: ""
     };
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
@@ -27,7 +78,7 @@ class App extends Component {
       .then(() => {
         this.setState({
           user: null,
-          userExists: null
+          userExists: false
         });
       });
   };
@@ -35,12 +86,15 @@ class App extends Component {
   login() {
     auth.signInWithPopup(googleProvider)
       .then((result) => {
+        const user = result.user;
         this.setState({
+          user,
           userExists: true,
-          userName: result.user.displayName,
-          userID: result.user.uid,
-          userPhoto: result.user.photoURL
         });
+        console.log(result.user.uid)
+        console.log(result.user.displayName)
+        console.log(this.state.userExists)
+        console.log(result.user)
       });
   };
 
@@ -48,26 +102,23 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav
-            userName={this.state.userName}
-            userID={this.state.userID}
-            userPhoto={this.state.photoURL}
-          >
+          <Nav>
             {
               this.state.userExists === true ?
                 <div style={{ display: "inline-block", width: 200 }}>
-                  <p style={{ float: "right" }}>Signed in as: {this.state.userName}</p>
-                  <Button style={{ float: "right" }} onClick={this.logout}>Logout</Button>
+                  <p>Signed In</p>
+                  <Button onClick={this.logout}>Logout</Button>
                 </div>
                 :
                 <div style={{ display: "inline-block", width: 200 }}>
-                  <p style={{ float: "right" }}> Please sign in for access</p>
-                  <Button style={{ float: "right" }} onClick={this.login}>Login</Button>
+                  <p> Please sign in for access</p>
+                  <Button onClick={this.login}>Login</Button>
                 </div>
             }
           </Nav>
+
           <Switch>
-            <Route exact path="/" render={(props) => <Pool userID={this.state.userID} />} />
+            <Route exact path="/" render={() => <Pool userExists={this.state.userExists} user={this.state.user} />} />
           </Switch>
           <Footer />
         </div>

@@ -1,23 +1,28 @@
 import React, { Component } from "react";
 import Topper from "../../Components/Topper/Topper";
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import {
+    Grid,
+    Row, Col, Button
+} from 'react-bootstrap';
 // import characters from "../../Data/characters.json";
-import characters from "../../Data/charSimple.json";
+// import characters from "../../Data/charSimple.json";
 import Persons from "../../Components/Persons/Persons";
-import Form from "../../Components/Form/Form";
-// import firebase from "../../Utilities/firebase";
+// import Form from "../../Components/Form/Form";
+import firebase from "../../Utilities/firebase";
 
 class Pool extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
+            user: props.user,
+            userExists: props.userExists,
             // characters: characters,
             // selection: ["Jon Snow"],
             // show: false,
         };
         // this.sendBack = this.sendBack.bind(this);
-        // this.moveOver = this.moveOver.bind(this);
+        this.moveOver = this.moveOver.bind(this);
     };
 
     // sendBack() {
@@ -27,33 +32,43 @@ class Pool extends Component {
     //     // maybe instead of importing json as objects, convert to an array?
     // };
 
-    // moveOver(characters) {
-    //     // Sends a selected character to the opposite column to be submitted for the deadpool
-    //     // console.log(characters);
+    moveOver(props) {
+        console.log("UserID: " + this.props.user.uid)
+        console.log("UserName: " + this.props.user.displayName)
+        // console.log("props :" + this.props.user.uid)
+        //     // Sends a selected character to the opposite column to be submitted for the deadpool
+        //     // console.log(characters);
 
-    //     var selection = this.state.selection;
-    //     for (var i = 0; i < this.state.characters.length; i++) {
-    //         console.log(characters[i]);
-    //         if (characters === (i + 1)) {
-    //             // var match = characters.name
-    //             // console.log(match)
-    //             // move character match into a new array
-    //             // selection.push(match)
-    //             // console.log(selection)
-    //         };
-    //     };
-    // };
+        //     var selection = this.state.selection;
+        //     for (var i = 0; i < this.state.characters.length; i++) {
+        //         console.log(characters[i]);
+        //         if (characters === (i + 1)) {
+        //             // var match = characters.name
+        //             // console.log(match)
+        //             // move character match into a new array
+        //             // selection.push(match)
+        //             // console.log(selection)
+        //         };
+        //     };
+    };
 
-    render() {
+    render(props) {
 
         return (
             <Grid>
-                <Form />
-                {/* <Topper />
+                {/* <Form /> */}
+                <Topper />
+                {this.state.userExists === false ?
+                    <p>Not logged in sry bro</p>
+                    :
+                    <Button bsStyle="default" onClick={this.moveOver}>Clicky Test </Button>
+                }
+
+
                 <Persons />
                 <br />
                 <Row>
-                    <Col xs={6}>
+                    {/* <Col xs={6}>
 
                         {this.props.userID}
 
@@ -78,9 +93,9 @@ class Pool extends Component {
                                 </div>
                             ))}
                         {this.state.selection}
-                    </Col>
+                    </Col> */}
 
-                </Row> */}
+                </Row>
             </Grid>
         );
     };
