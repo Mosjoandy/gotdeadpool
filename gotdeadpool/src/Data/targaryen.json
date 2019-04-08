@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "alive": "light",
+        "stateName": "daenerysTargaryen",
+        "name": "Daenerys Targaryen",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/4/4f/Daenerys_Season_8.jpg/revision/latest/scale-to-width-down/350?cb=20190206213056"
+    },
+    {
+        "stateName": "lordVarys",
+        "id": 2,
+        "alive": "light",
+        "name": "Lord Varys",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/5/58/Varys_Season_8.jpg/revision/latest/scale-to-width-down/333?cb=20190206212952"
+    },
+    {
+        "stateName": "greyWorm",
+        "id": 3,
+        "alive": "light",
+        "name": "Grey Worm",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/0/0c/Grey_Worm_Longer.jpg/revision/latest/scale-to-width-down/332?cb=20170728152422"
+    },
+    {
+        "stateName": "missandei",
+        "id": 4,
+        "alive": "light",
+        "name": "Missandei",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/0/0d/Profile-Missandei.PNG/revision/latest/scale-to-width-down/314?cb=20170818044646"
+    },
+    {
+        "stateName": "serJorah",
+        "id": 5,
+        "alive": "light",
+        "name": "Ser Jorah",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/f/f5/706_Jorah_Profile.png/revision/latest/scale-to-width-down/350?cb=20170823224935"
+    },
+    {
+        "stateName": "daarioNaharis",
+        "id": 6,
+        "alive": "light",
+        "name": "Daario Naharis",
+        "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/d/d8/Daario-s6e4.jpg/revision/latest/scale-to-width-down/323?cb=20160512195958"
+    }
+]

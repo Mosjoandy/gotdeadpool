@@ -40,10 +40,7 @@ class App extends Component {
   //         userName: result.user.displayName,
   //         userID: result.user.uid,
   //       });
-  //       firebase.database().ref("users/" + result.user.uid).set({
-  //         userID: result.user.uid,
-  //         userName: result.user.displayName
-  //       });
+
   //     });
   // };
 
@@ -91,10 +88,14 @@ class App extends Component {
           user,
           userExists: true,
         });
-        console.log(result.user.uid)
-        console.log(result.user.displayName)
-        console.log(this.state.userExists)
-        console.log(result.user)
+        firebase.database().ref("users/" + result.user.uid).set({
+          userID: result.user.uid,
+          userName: result.user.displayName
+        });
+        // console.log(result.user.uid)
+        // console.log(result.user.displayName)
+        // console.log(this.state.userExists)
+        // console.log(result.user)
       });
   };
 
