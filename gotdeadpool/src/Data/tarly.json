@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "alive": "light",
+        "alive": "default",
         "stateName": "samwellTarly",
         "name": "Samwell Tarly",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/3/30/Samwell_Season_8_Cropped.PNG/revision/latest/scale-to-width-down/315?cb=20190207112410"
@@ -9,7 +9,7 @@
     {
         "stateName": "gilly",
         "id": 2,
-        "alive": "light",
+        "alive": "default",
         "name": "Gilly",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/1/1c/GOT_Season_7_16_gilly_infobox.jpg/revision/latest/scale-to-width-down/325?cb=20170715193524"
     }

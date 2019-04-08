@@ -2,14 +2,14 @@
    
     {
         "stateName": "tormund",
-        "alive": "light",
+        "alive": "default",
         "id": 1,
         "name": "Tormund",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/9/97/Tormund_Profile.PNG/revision/latest/scale-to-width-down/320?cb=20170818044433"
     },
     {
         "stateName": "meeraReed",
-        "alive": "light",
+        "alive": "default",
         "id": 2,
         "name": "Meera Reed",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/9/93/Meera_Infobox.PNG/revision/latest?cb=20170807214241"
