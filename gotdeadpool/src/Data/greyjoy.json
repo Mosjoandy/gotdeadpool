@@ -8,7 +8,7 @@
     },
     {
         "stateName": "yaraGreyjoy",
-        "alive": "default",
+        "alive": "danger",
         "id": 2,
         "name": "Yara Greyjoy",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/a/a8/Game_of_thrones_6x5_yara_promo.jpg/revision/latest?cb=20160808022737"

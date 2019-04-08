@@ -11,54 +11,6 @@ import Footer from "./Components/Footer/Footer";
 
 class App extends Component {
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     userID: null,
-  //     userName: null,
-  //     userExists: false,
-  //   };
-  //   this.login = this.login.bind(this);
-  //   this.logout = this.logout.bind(this);
-  // };
-
-  // logout() {
-  //   auth.signOut()
-  //     .then(() => {
-  //       this.setState({
-  //         user: null,
-  //         userExists: null
-  //       });
-  //     });
-  // };
-
-  // login() {
-  //   auth.signInWithPopup(googleProvider)
-  //     .then((result) => {
-  //       this.setState({
-  //         userExists: true,
-  //         userName: result.user.displayName,
-  //         userID: result.user.uid,
-  //       });
-
-  //     });
-  // };
-
-  // componentWillUpdate() {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // this.setState({ user });
-  //       JSON.stringify(user)
-  //       console.log("compoonent mount app level: " + user.uid)
-  //       this.setState({
-  //         userExists: true,
-  //         userID: user.uid,
-  //         userName: user.displayName
-  //       })
-  //     };
-  //   });
-  // };
-
   constructor() {
     super();
     this.state = {

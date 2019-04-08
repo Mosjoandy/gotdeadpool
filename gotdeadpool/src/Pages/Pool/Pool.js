@@ -42,6 +42,7 @@ class Pool extends Component {
                         :
                         <div>
                             {/* <Button bsStyle="default" onClick={this.moveOver}>Clicky Test </Button> */}
+                            <Persons />
                             <Characters />
                         </div>
                 }
@@ -53,7 +54,7 @@ class Pool extends Component {
                     this.props.userExists === false ?
                         null
                         :
-                        <Persons />
+                   null
                 }
             </Grid>
         );
