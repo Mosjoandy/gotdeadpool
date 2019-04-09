@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Topper from "../../Components/Topper/Topper";
 import {
     Grid,
-    Row, Col, Button
+    Row, Button, Col
 } from 'react-bootstrap';
 import Characters from "../../Components/Characters/Characters";
 import Persons from "../../Components/Persons/Persons";
@@ -16,15 +16,23 @@ class Pool extends Component {
         this.state = {
             user: props.user,
             userExists: props.userExists,
-
+            paid: null,
         };
 
-        this.moveOver = this.moveOver.bind(this);
+        this.joinPool = this.joinPool.bind(this);
     };
 
-    moveOver() {
-        console.log("UserID: " + this.props.user.uid)
-        console.log("UserName: " + this.props.user.displayName)
+    componentWillMount() {
+
+    }
+
+
+    joinPool() {
+        firebase.database().ref("pool/" + this.props.user.uid).set({
+            userName: this.props.user.displayName,
+            paid: false,
+            picks: "None",
+        });
     };
 
     render() {
@@ -41,8 +49,8 @@ class Pool extends Component {
                         </div>
                         :
                         <div>
-                            {/* <Button bsStyle="default" onClick={this.moveOver}>Clicky Test </Button> */}
-                            <Persons user={this.props.user.displayName}/>
+
+                            <Persons user={this.props.user.displayName} />
                             <Characters />
                         </div>
                 }
@@ -54,7 +62,9 @@ class Pool extends Component {
                     this.props.userExists === false ?
                         null
                         :
-                   null
+                        <Col md={12} className="text-center">
+                            <Button bsStyle="default" onClick={this.joinPool}>Join Pool</Button>
+                        </Col>
                 }
             </Grid>
         );

@@ -58,15 +58,9 @@ class App extends Component {
           <Nav>
             {
               this.state.userExists === true ?
-                <div style={{ display: "inline-block", width: 200 }}>
-                  <p>Signed In</p>
-                  <Button onClick={this.logout}>Logout</Button>
-                </div>
+                <Button onClick={this.logout}>Logout</Button>
                 :
-                <div style={{ display: "inline-block", width: 200 }}>
-                  <p> Please sign in for access</p>
-                  <Button onClick={this.login}>Login</Button>
-                </div>
+                <Button onClick={this.login}>Login</Button>
             }
           </Nav>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Characters.css";
-import { Row, Panel, Col, Tabs, Tab, Label, Button, Badge } from 'react-bootstrap';
+import { Row, Panel, Col, Tabs, Tab, Label, Button } from 'react-bootstrap';
 import characters from "../../Data/characters.json";
 import stark from "../../Data/stark.json";
 import lannister from "../../Data/lannister.json";
@@ -43,6 +43,7 @@ class Characters extends Component {
         return (
             <Row>
                 <Col xs={12}>
+                    <h3 className="text-center">Deadpool</h3>
                     <Panel>
                         <Tabs
                             id="controlled-tab-example"
@@ -195,25 +196,25 @@ class Characters extends Component {
                                     <Panel>
                                         <Panel.Body className="text-center wordWrap">
                                             {this.state.stark.map((stark, index) => (
-                                                <Label className={"label-"+(stark.alive)+" pr-1"} key={index}>&nbsp;{stark.name}&nbsp; </Label>
+                                                <Label className={"label-" + (stark.alive) + " pr-1"} key={index}>&nbsp;{stark.name}&nbsp; </Label>
                                             ))}
-                                              {this.state.lannister.map((lannister, index) => (
-                                                <Label className={"label-"+(lannister.alive)} key={index}>&nbsp;{lannister.name}&nbsp;</Label>
+                                            {this.state.lannister.map((lannister, index) => (
+                                                <Label className={"label-" + (lannister.alive)} key={index}>&nbsp;{lannister.name}&nbsp;</Label>
                                             ))}
-                                              {this.state.targaryen.map((targaryen, index) => (
-                                                <Label className={"label-"+(targaryen.alive)} key={index}>&nbsp;{targaryen.name}&nbsp;</Label>
+                                            {this.state.targaryen.map((targaryen, index) => (
+                                                <Label className={"label-" + (targaryen.alive)} key={index}>&nbsp;{targaryen.name}&nbsp;</Label>
                                             ))}
-                                              {this.state.greyjoy.map((greyjoy, index) => (
-                                                <Label className={"label-"+(greyjoy.alive)} key={index}>&nbsp;{greyjoy.name}&nbsp;</Label>
+                                            {this.state.greyjoy.map((greyjoy, index) => (
+                                                <Label className={"label-" + (greyjoy.alive)} key={index}>&nbsp;{greyjoy.name}&nbsp;</Label>
                                             ))}
-                                              {this.state.tarly.map((tarly, index) => (
-                                                <Label className={"label-"+(tarly.alive)} key={index}>&nbsp;{tarly.name}&nbsp;</Label>
+                                            {this.state.tarly.map((tarly, index) => (
+                                                <Label className={"label-" + (tarly.alive)} key={index}>&nbsp;{tarly.name}&nbsp;</Label>
                                             ))}
-                                              {this.state.free_folk.map((free_folk, index) => (
-                                                <Label className={"label-"+(free_folk.alive)} key={index}>&nbsp;{free_folk.name}&nbsp;</Label>
+                                            {this.state.free_folk.map((free_folk, index) => (
+                                                <Label className={"label-" + (free_folk.alive)} key={index}>&nbsp;{free_folk.name}&nbsp;</Label>
                                             ))}
-                                              {this.state.others.map((others, index) => (
-                                                <Label className={"label-"+(others.alive)} key={index}>&nbsp;{others.name}&nbsp;</Label>
+                                            {this.state.others.map((others, index) => (
+                                                <Label className={"label-" + (others.alive)} key={index}>&nbsp;{others.name}&nbsp;</Label>
                                             ))}
 
                                         </Panel.Body>
