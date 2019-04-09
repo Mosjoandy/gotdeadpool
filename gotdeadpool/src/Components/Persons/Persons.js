@@ -1,22 +1,19 @@
 import React, { Component } from "react";
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Panel, Button, Modal } from 'react-bootstrap';
 import firebase from "../../Utilities/firebase";
 
 class Persons extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             userPool: [],
+            userCount: 40,
+            prizePool: 100,
+            show: false,
+            user: props.user
         };
     };
-
-    // componentWillMount() {
-    //     firebase.database().ref("users/").on("value", function(snapshot) {
-    //         var userPool = (snapshot.val())
-    //         console.log(userPool)
-    //     });
-    // }
 
     componentWillMount() {
         // Access firebase, referencing item userPool
@@ -38,34 +35,66 @@ class Persons extends Component {
             console.log(newState)
             // Set new state of userPool with array of objects
             this.setState({ userPool: newState });
-
+            console.log(this.state.user)
         });
 
     };
 
-    render() {
+    render(props) {
+        let close = () => this.setState({ show: false });
+        let middle = {
+            marginLeft: "auto",
+            marginRight: "auto",
+        }
+
+
         return (
             <Grid>
                 <Row>
-                    <Col md={4}>
-                        <h3 className="text-left">Users Registered:</h3>
-                        <ul>
-                            {this.state.userPool.map((userPool, index) => (
-                                <span key={index}>{userPool.userName}, {}</span>
-                            ))}
-                        </ul>
+                    <Col md={3}>
                     </Col>
-                    <Col md={4} className="text-right">
-                        <h3 className="text-left">Users Participating:</h3>
-                        <ul>
-                            <li></li>
-                        </ul>
+
+                    <Col md={6}>
+                        <Panel>
+                            <Panel.Body>
+
+
+                                <Col md={6} className="text-center">
+                                    <h3>Users in Pool: {this.state.userCount}</h3>
+                                    <Button onClick={() => this.setState({ show: true })}>Show Users</Button>
+                                </Col>
+
+                                <Col md={6} className="text-center">
+                                    <h3>Pool Prize: ${this.state.prizePool}</h3>
+                                    <h4>{this.state.user}</h4>
+                                </Col>
+
+
+                            </Panel.Body>
+                        </Panel>
                     </Col>
-                    <Col md={4} className="text-center">
-                        <h3>Pool Prize:</h3>
-                        <p></p>
+
+                    <Col md={3}>
                     </Col>
                 </Row>
+
+                <Modal
+                    size="sm"
+                    show={this.state.show}
+                    onHide={close}
+                    aria-labelledby="modal-userPool"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id="modal-userPool">Paid Users</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <ul>
+                            {this.state.userPool.map((userPool, index) => (
+                                <li key={index}>{userPool.userName} {}</li>
+                            ))}
+                        </ul>
+                    </Modal.Body>
+                </Modal>
             </Grid>
         )
     }
@@ -73,3 +102,4 @@ class Persons extends Component {
 };
 
 export default Persons
+

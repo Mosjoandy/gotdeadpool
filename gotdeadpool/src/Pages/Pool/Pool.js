@@ -34,7 +34,7 @@ class Pool extends Component {
                 {/* <Form /> */}
 
                 {
-                    this.props.userExists === true ?
+                    this.props.userExists === false ?
                         <div>
                             <p>Not logged in sry bro</p>
                             <Topper />
@@ -42,7 +42,7 @@ class Pool extends Component {
                         :
                         <div>
                             {/* <Button bsStyle="default" onClick={this.moveOver}>Clicky Test </Button> */}
-                            <Persons />
+                            <Persons user={this.props.user.displayName}/>
                             <Characters />
                         </div>
                 }
