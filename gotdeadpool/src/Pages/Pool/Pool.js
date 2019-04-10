@@ -60,19 +60,23 @@ class Pool extends Component {
                             <Characters />
                         </div>
                 }
+
                 {
                     this.props.userExists === false ?
                         null
                         :
                         <div>
                             {
-
+                                this.props.user.displayName === "Nicholas Chan" ? 
+                                    <p>I am the master</p>
+                                :
+                                    <Row>
+                                        <Col md={12} className="text-center">
+                                            <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
+                                        </Col>
+                                    </Row>
                             }
-                            <Row>
-                                <Col md={12} className="text-center">
-                                    <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
-                                </Col>
-                            </Row>
+
                         </div>
                 }
                 <Modal
@@ -89,7 +93,7 @@ class Pool extends Component {
                     <Modal.Body>
                         <div className="text-center">
                             <h2>Your request has been sent</h2>
-                            <h3>Please wait for admin approval</h3>
+                            <h3>Send your wager to Nicholas Chan</h3>
                             <hr />
                             <p>Want to make this faster? You can venmo @Nicholas-Chan</p>
                             <p>In the comment field, put in your Name and mention the deadpool</p>
