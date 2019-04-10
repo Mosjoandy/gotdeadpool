@@ -67,35 +67,36 @@ class Persons extends Component {
         let close = () => this.setState({ show: false });
 
         return (
-            <Grid>
-                <Row>
-                    <Col md={3}>
-                    </Col>
 
-                    <Col md={6}>
-                        <Panel>
-                            <Panel.Body>
-                                <Col md={6} className="text-center">
-                                    <h3>Users in Pool: {this.state.userCount}</h3>
-                                    <Button onClick={() => this.setState({ show: true })}>Show Users</Button>
-                                </Col>
+            <Row>
+                <Col md={3}>
+                </Col>
 
-                                <Col md={6} className="text-center">
-                                    <h3>Pool Prize: ${this.state.prizePool}</h3>
-                                    <h4>{this.state.user}</h4>
-                                    {this.state.user === "Nicholas Chan" ?
+                <Col md={6}>
+                    <Panel>
+                        <Panel.Body>
+                            <Col md={6} className="text-center">
+                                <h3>Users in Pool: {this.state.userCount}</h3>
+                                <Button onClick={() => this.setState({ show: true })}>Show Users</Button>
+                            </Col>
+
+                            <Col md={6} className="text-center">
+                                <h3>Pool Prize: ${this.state.prizePool}</h3>
+                                <h4>{this.state.user}</h4>
+                                {
+                                    this.state.user === "Nicholas Chan" ?
                                         <Button onClick={this.addUser}>Add Payee/Cash</Button>
                                         :
                                         null
-                                    }
-                                </Col>
-                            </Panel.Body>
-                        </Panel>
-                    </Col>
+                                }
+                            </Col>
+                        </Panel.Body>
+                    </Panel>
+                </Col>
 
-                    <Col md={3}>
-                    </Col>
-                </Row>
+                <Col md={3}>
+                </Col>
+
 
                 <Modal
                     size="sm"
@@ -114,7 +115,7 @@ class Persons extends Component {
                         </ul>
                     </Modal.Body>
                 </Modal>
-            </Grid>
+            </Row>
         )
     }
 

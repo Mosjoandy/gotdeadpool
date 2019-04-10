@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Topper from "../../Components/Topper/Topper";
 import {
     Grid,
-    Row, Button, Col
+    Row, Button, Col, Modal, Image
 } from 'react-bootstrap';
 import Characters from "../../Components/Characters/Characters";
 import Persons from "../../Components/Persons/Persons";
@@ -17,25 +17,32 @@ class Pool extends Component {
             user: props.user,
             userExists: props.userExists,
             paid: null,
+            accessButton: "show",
+            show: false,
         };
-
-        this.joinPool = this.joinPool.bind(this);
+        this.requestAccess = this.requestAccess.bind(this);
     };
 
-    componentWillMount() {
+    componentDidMount() {
 
     }
 
-
-    joinPool() {
+    requestAccess() {
         firebase.database().ref("pool/" + this.props.user.uid).set({
             userName: this.props.user.displayName,
+            userID: this.props.user.uid,
+            access: true,
             paid: false,
             picks: "None",
+        });
+        this.setState({
+            accessButton: "hide",
+            show: true,
         });
     };
 
     render() {
+        let close = () => this.setState({ show: false });
 
         return (
             <Grid>
@@ -44,7 +51,6 @@ class Pool extends Component {
                 {
                     this.props.userExists === false ?
                         <div>
-                            <p>Not logged in sry bro</p>
                             <Topper />
                         </div>
                         :
@@ -54,18 +60,44 @@ class Pool extends Component {
                             <Characters />
                         </div>
                 }
-
-                <Row>
-
-                </Row>
                 {
                     this.props.userExists === false ?
                         null
                         :
-                        <Col md={12} className="text-center">
-                            <Button bsStyle="default" onClick={this.joinPool}>Join Pool</Button>
-                        </Col>
+                        <div>
+                            {
+
+                            }
+                            <Row>
+                                <Col md={12} className="text-center">
+                                    <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
+                                </Col>
+                            </Row>
+                        </div>
                 }
+                <Modal
+                    size="sm"
+                    show={this.state.show}
+                    onHide={close}
+                    aria-labelledby="requestAccessModal"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id="requestAccessModal">
+                            Request Sent
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="text-center">
+                            <h2>Your request has been sent</h2>
+                            <h3>Please wait for admin approval</h3>
+                            <hr />
+                            <p>Want to make this faster? You can venmo @Nicholas-Chan</p>
+                            <p>In the comment field, put in your Name and mention the deadpool</p>
+                            <Image style={{ marginRight: "auto", marginLeft: "auto", height: 125, width: 125 }} src={require("../../Data/qr.png")} alt="venmo" />
+                        </div>
+                    </Modal.Body>
+                </Modal>
+
             </Grid>
         );
     };
