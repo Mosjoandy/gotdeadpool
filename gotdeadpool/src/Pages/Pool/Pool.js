@@ -23,9 +23,15 @@ class Pool extends Component {
         this.requestAccess = this.requestAccess.bind(this);
     };
 
-    componentDidMount() {
-
-    }
+    componentWillReceiveProps(props) {
+        firebase.database().ref("pool/" + props.user.uid).on("value", function (snapshot) {
+            try {
+                console.log(snapshot.val())
+            } catch (err) {
+                console.log(err);
+            }
+        });
+    };
 
     requestAccess() {
         firebase.database().ref("pool/" + this.props.user.uid).set({
@@ -67,9 +73,9 @@ class Pool extends Component {
                         :
                         <div>
                             {
-                                this.props.user.displayName === "Nicholas Chan" ? 
-                                    <p>I am the master</p>
-                                :
+                                this.props.user.displayName === "Nicholas Chan" ?
+                                    <p>Approval of people's stuff</p>
+                                    :
                                     <Row>
                                         <Col md={12} className="text-center">
                                             <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>

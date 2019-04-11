@@ -105,7 +105,7 @@ class Persons extends Component {
                     aria-labelledby="modal-userPool"
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title id="modal-userPool">Paid Users</Modal.Title>
+                        <Modal.Title id="modal-userPool">Users In Pool</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <ul>
