@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col, Panel, Button, Modal } from 'react-bootstrap';
+import { Row, Col, Panel, Button, Modal } from 'react-bootstrap';
 import firebase from "../../Utilities/firebase";
 
 class Persons extends Component {

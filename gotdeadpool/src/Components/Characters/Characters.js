@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Characters.css";
-import { Row, Panel, Col, Tabs, Tab, Label, Button, Modal, Image } from 'react-bootstrap';
+import { Row, Panel, Col, Label, Button, Modal, Image } from 'react-bootstrap';
 import characters from "../../Data/characters.json";
 import stark from "../../Data/stark.json";
 import lannister from "../../Data/lannister.json";

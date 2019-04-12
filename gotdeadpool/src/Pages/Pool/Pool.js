@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap';
 import Characters from "../../Components/Characters/Characters";
 import Persons from "../../Components/Persons/Persons";
-// import Form from "../../Components/Form/Form";
+import Access from "../../Components/Access/Access";
 import firebase from "../../Utilities/firebase";
 
 class Pool extends Component {
@@ -17,6 +17,7 @@ class Pool extends Component {
             user: props.user,
             userExists: props.userExists,
             paid: null,
+            picks: null,
             accessButton: "show",
             show: false,
         };
@@ -24,12 +25,16 @@ class Pool extends Component {
     };
 
     componentWillReceiveProps(props) {
+        var that = this;
         firebase.database().ref("pool/" + props.user.uid).on("value", function (snapshot) {
             try {
-                console.log(snapshot.val())
+                that.setState({
+                    paid: snapshot.val().paid,
+                    picks: snapshot.val().picks
+                });
             } catch (err) {
                 console.log(err);
-            }
+            };
         });
     };
 
@@ -73,18 +78,28 @@ class Pool extends Component {
                         :
                         <div>
                             {
-                                this.props.user.displayName === "Nicholas Chan" ?
-                                    <p>Approval of people's stuff</p>
-                                    :
+                                this.state.paid === false ?
                                     <Row>
                                         <Col md={12} className="text-center">
                                             <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
                                         </Col>
                                     </Row>
+                                    :
+                                    <div>
+                                        {
+                                            this.state.picks === "None" ? 
+                                            <Access userID={this.props.user.uid}/>
+                                            :
+                                            <p>you've picked already!</p>
+
+                                        }
+
+                                    </div>
                             }
 
                         </div>
                 }
+
                 <Modal
                     size="sm"
                     show={this.state.show}
