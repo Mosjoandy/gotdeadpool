@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Button, Modal, Label } from 'react-bootstrap';
+import { Row, Col, Button, Modal, Label, Form } from 'react-bootstrap';
 import firebase from "../../Utilities/firebase";
 
 class Access extends Component {
@@ -187,107 +187,99 @@ class Access extends Component {
                                 <h3>Characters</h3>
                             </Col>
                         </Row>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Row>
 
-                        <Row>
+                                {
+                                    this.state.pickCount < 10 ?
+                                        <Col xs={6} className="text-left">
+                                            {this.state.jonSnow === true ? null : <Label className="label-success" onClick={chosen1}>Jon Snow</Label>}<br />
+                                            {this.state.sansaStark === true ? null : <Label className="label-success" onClick={chosen2}>Sansa Stark</Label>}<br />
+                                            {this.state.aryaStark === true ? null : <Label className="label-success" onClick={chosen3}>Arya Stark</Label>}<br />
+                                            {this.state.branStark === true ? null : <Label className="label-success" onClick={chosen4}>Bran Stark</Label>}<br />
+                                            {this.state.daenerysTargaryen === true ? null : <Label className="label-success" onClick={chosen5}>Daenerys Targaryen</Label>}<br />
+                                            {this.state.cerseiLannister === true ? null : <Label className="label-success" onClick={chosen6}>Cersei Lannister</Label>}<br />
+                                            {this.state.jaimeLannister === true ? null : <Label className="label-success" onClick={chosen7}>Jaime Lannister</Label>}<br />
+                                            {this.state.tyrionLannister === true ? null : <Label className="label-success" onClick={chosen8}>Tyrion Lannister</Label>}<br />
+                                            {this.state.samwellTarly === true ? null : <Label className="label-success" onClick={chosen9}>Samwell Tarly</Label>}<br />
+                                            {this.state.gilly === true ? null : <Label className="label-success" onClick={chosen10}>Gilly</Label>}<br />
+                                            {this.state.lordVarys === true ? null : <Label className="label-success" onClick={chosen11}>Lord Varys</Label>}<br />
+                                            {this.state.sandorClegane === true ? null : <Label className="label-success" onClick={chosen12}>Sandor Clegane</Label>}<br />
+                                            {this.state.gregorClegane === true ? null : <Label className="label-success" onClick={chosen13}>Gregor Clegane</Label>}<br />
+                                            {this.state.greyWorm === true ? null : <Label className="label-success" onClick={chosen14}>Grey Worm</Label>}<br />
+                                            {this.state.missandei === true ? null : <Label className="label-success" onClick={chosen15}>Missandei</Label>}<br />
+                                            {this.state.serJorah === true ? null : <Label className="label-success" onClick={chosen16}>Ser Jorah</Label>}<br />
+                                            {this.state.melisandre === true ? null : <Label className="label-success" onClick={chosen17}>Melisandre</Label>}<br />
+                                            {this.state.theNightKing === true ? null : <Label className="label-success" onClick={chosen18}>The Night King</Label>}<br />
+                                            {this.state.theonGreyjoy === true ? null : <Label className="label-success" onClick={chosen19}>Theon Greyjoy</Label>}<br />
+                                            {this.state.yaraGreyjoy === true ? null : <Label className="label-success" onClick={chosen20}>Yara Greyjoy</Label>}<br />
+                                            {this.state.euronGreyjoy === true ? null : <Label className="label-success" onClick={chosen21}>Euron Greyjoy</Label>}<br />
+                                            {this.state.tormund === true ? null : <Label className="label-success" onClick={chosen22}>Tormund</Label>}<br />
+                                            {this.state.brienneOfTarth === true ? null : <Label className="label-success" onClick={chosen23}>Brienne of Tarth</Label>}<br />
+                                            {this.state.serDavosSeaworth === true ? null : <Label className="label-success" onClick={chosen24}>Ser Davos Seaworth</Label>}<br />
+                                            {this.state.podrickPayne === true ? null : <Label className="label-success" onClick={chosen25}>Podrick Payne</Label>}<br />
+                                            {this.state.meeraReed === true ? null : <Label className="label-success" onClick={chosen26}>Meera Reed</Label>}<br />
+                                            {this.state.gendry === true ? null : <Label className="label-success" onClick={chosen27}>Gendry</Label>}<br />
+                                            {this.state.serBronn === true ? null : <Label className="label-success" onClick={chosen28}>Ser Bronn</Label>}<br />
+                                            {this.state.daarioNaharis === true ? null : <Label className="label-success" onClick={chosen29}>Daario Naharis</Label>}<br />
+                                            {this.state.bericDondarrion === true ? null : <Label className="label-success" onClick={chosen30}>Beric Dondarrion</Label>}<br />
+
+                                        </Col>
+                                        :
+                                        <Col xs={6}>
+
+                                        </Col>
+                                }
+
+                                <Col xs={6} className="text-right">
+                                    {this.state.jonSnow === false ? null : <Label className="label-danger" onClick={unchosen1}>Jon Snow</Label>}<br />
+                                    {this.state.sansaStark === false ? null : <Label className="label-danger" onClick={unchosen2}>Sansa Stark</Label>}<br />
+                                    {this.state.aryaStark === false ? null : <Label className="label-danger" onClick={unchosen3}>Arya Stark</Label>}<br />
+                                    {this.state.branStark === false ? null : <Label className="label-danger" onClick={unchosen4}>Bran Stark</Label>}<br />
+                                    {this.state.daenerysTargaryen === false ? null : <Label className="label-danger" onClick={unchosen5}>Daenerys Targaryen</Label>}<br />
+                                    {this.state.cerseiLannister === false ? null : <Label className="label-danger" onClick={unchosen6}>Cersei Lannister</Label>}<br />
+                                    {this.state.jaimeLannister === false ? null : <Label className="label-danger" onClick={unchosen7}>Jaime Lannister</Label>}<br />
+                                    {this.state.tyrionLannister === false ? null : <Label className="label-danger" onClick={unchosen8}>Tyrion Lannister</Label>}<br />
+                                    {this.state.samwellTarly === false ? null : <Label className="label-danger" onClick={unchosen9}>Samwell Tarly</Label>}<br />
+                                    {this.state.gilly === false ? null : <Label className="label-danger" onClick={unchosen10}>Gilly</Label>}<br />
+                                    {this.state.lordVarys === false ? null : <Label className="label-danger" onClick={unchosen11}>Lord</Label>}<br />
+                                    {this.state.sandorClegane === false ? null : <Label className="label-danger" onClick={unchosen12}>Sandor Clegane</Label>}<br />
+                                    {this.state.gregorClegane === false ? null : <Label className="label-danger" onClick={unchosen13}>Gregor Clegane</Label>}<br />
+                                    {this.state.greyWorm === false ? null : <Label className="label-danger" onClick={unchosen14}>Grey</Label>}<br />
+                                    {this.state.missandei === false ? null : <Label className="label-danger" onClick={unchosen15}>Missandei</Label>}<br />
+                                    {this.state.serJorah === false ? null : <Label className="label-danger" onClick={unchosen16}>Ser Jorah</Label>}<br />
+                                    {this.state.melisandre === false ? null : <Label className="label-danger" onClick={unchosen17}>Melisandre</Label>}<br />
+                                    {this.state.theNightKing === false ? null : <Label className="label-danger" onClick={unchosen18}>The Night King</Label>}<br />
+                                    {this.state.theonGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen19}>Theon Greyjoy</Label>}<br />
+                                    {this.state.yaraGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen20}>Yara Greyjoy</Label>}<br />
+                                    {this.state.euronGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen21}>Euron Greyjoy</Label>}<br />
+                                    {this.state.tormund === false ? null : <Label className="label-danger" onClick={unchosen22}>Tormund</Label>}<br />
+                                    {this.state.brienneOfTarth === false ? null : <Label className="label-danger" onClick={unchosen23}>Brienne of Tarth</Label>}<br />
+                                    {this.state.serDavosSeaworth === false ? null : <Label className="label-danger" onClick={unchosen24}>Ser Davos Seaworth</Label>}<br />
+                                    {this.state.podrickPayne === false ? null : <Label className="label-danger" onClick={unchosen25}>Podrick Payne</Label>}<br />
+                                    {this.state.meeraReed === false ? null : <Label className="label-danger" onClick={unchosen26}>Meera</Label>}<br />
+                                    {this.state.gendry === false ? null : <Label className="label-danger" onClick={unchosen27}>Gendry</Label>}<br />
+                                    {this.state.serBronn === false ? null : <Label className="label-danger" onClick={unchosen28}>Ser Bronn</Label>}<br />
+                                    {this.state.daarioNaharis === false ? null : <Label className="label-danger" onClick={unchosen29}>Daario Naharis</Label>}<br />
+                                    {this.state.bericDondarrion === false ? null : <Label className="label-danger" onClick={unchosen30}>Beric Dondarrion</Label>}<br />
+                                </Col>
+                            </Row>
+
                             {
-                                this.state.pickCount < 10 ?
-                                    <Col xs={6} className="text-left">
-                                        {this.state.jonSnow === true ? null : <Label className="label-success" onClick={chosen1}>Jon Snow</Label>}<br />
-                                        {this.state.sansaStark === true ? null : <Label className="label-success" onClick={chosen2}>Sansa Stark</Label>}<br />
-                                        {this.state.aryaStark === true ? null : <Label className="label-success" onClick={chosen3}>Arya Stark</Label>}<br />
-                                        {this.state.branStark === true ? null : <Label className="label-success" onClick={chosen4}>Bran Stark</Label>}<br />
-                                        {this.state.daenerysTargaryen === true ? null : <Label className="label-success" onClick={chosen5}>Daenerys Targaryen</Label>}<br />
-                                        {this.state.cerseiLannister === true ? null : <Label className="label-success" onClick={chosen6}>Cersei Lannister</Label>}<br />
-                                        {this.state.jaimeLannister === true ? null : <Label className="label-success" onClick={chosen7}>Jaime Lannister</Label>}<br />
-                                        {this.state.tyrionLannister === true ? null : <Label className="label-success" onClick={chosen8}>Tyrion Lannister</Label>}<br />
-                                        {this.state.samwellTarly === true ? null : <Label className="label-success" onClick={chosen9}>Samwell Tarly</Label>}<br />
-                                        {this.state.gilly === true ? null : <Label className="label-success" onClick={chosen10}>Gilly</Label>}<br />
-                                        {this.state.lordVarys === true ? null : <Label className="label-success" onClick={chosen11}>Lord Varys</Label>}<br />
-                                        {this.state.sandorClegane === true ? null : <Label className="label-success" onClick={chosen12}>Sandor Clegane</Label>}<br />
-                                        {this.state.gregorClegane === true ? null : <Label className="label-success" onClick={chosen13}>Gregor Clegane</Label>}<br />
-                                        {this.state.greyWorm === true ? null : <Label className="label-success" onClick={chosen14}>Grey Worm</Label>}<br />
-                                        {this.state.missandei === true ? null : <Label className="label-success" onClick={chosen15}>Missandei</Label>}<br />
-                                        {this.state.serJorah === true ? null : <Label className="label-success" onClick={chosen16}>Ser Jorah</Label>}<br />
-                                        {this.state.melisandre === true ? null : <Label className="label-success" onClick={chosen17}>Melisandre</Label>}<br />
-                                        {this.state.theNightKing === true ? null : <Label className="label-success" onClick={chosen18}>The Night King</Label>}<br />
-                                        {this.state.theonGreyjoy === true ? null : <Label className="label-success" onClick={chosen19}>Theon Greyjoy</Label>}<br />
-                                        {this.state.yaraGreyjoy === true ? null : <Label className="label-success" onClick={chosen20}>Yara Greyjoy</Label>}<br />
-                                        {this.state.euronGreyjoy === true ? null : <Label className="label-success" onClick={chosen21}>Euron Greyjoy</Label>}<br />
-                                        {this.state.tormund === true ? null : <Label className="label-success" onClick={chosen22}>Tormund</Label>}<br />
-                                        {this.state.brienneOfTarth === true ? null : <Label className="label-success" onClick={chosen23}>Brienne of Tarth</Label>}<br />
-                                        {this.state.serDavosSeaworth === true ? null : <Label className="label-success" onClick={chosen24}>Ser Davos Seaworth</Label>}<br />
-                                        {this.state.podrickPayne === true ? null : <Label className="label-success" onClick={chosen25}>Podrick Payne</Label>}<br />
-                                        {this.state.meeraReed === true ? null : <Label className="label-success" onClick={chosen26}>Meera Reed</Label>}<br />
-                                        {this.state.gendry === true ? null : <Label className="label-success" onClick={chosen27}>Gendry</Label>}<br />
-                                        {this.state.serBronn === true ? null : <Label className="label-success" onClick={chosen28}>Ser Bronn</Label>}<br />
-                                        {this.state.daarioNaharis === true ? null : <Label className="label-success" onClick={chosen29}>Daario Naharis</Label>}<br />
-                                        {this.state.bericDondarrion === true ? null : <Label className="label-success" onClick={chosen30}>Beric Dondarrion</Label>}<br />
-
-                                    </Col>
-                                    :
-                                    <Col xs={6}>
-
-                                    </Col>
-                            }
-
-                            <Col xs={6} className="text-right">
-                                {this.state.jonSnow === false ? null : <Label className="label-danger" onClick={unchosen1}>Jon Snow</Label>}<br />
-                                {this.state.sansaStark === false ? null : <Label className="label-danger" onClick={unchosen2}>Sansa Stark</Label>}<br />
-                                {this.state.aryaStark === false ? null : <Label className="label-danger" onClick={unchosen3}>Arya Stark</Label>}<br />
-                                {this.state.branStark === false ? null : <Label className="label-danger" onClick={unchosen4}>Bran Stark</Label>}<br />
-                                {this.state.daenerysTargaryen === false ? null : <Label className="label-danger" onClick={unchosen5}>Daenerys Targaryen</Label>}<br />
-                                {this.state.cerseiLannister === false ? null : <Label className="label-danger" onClick={unchosen6}>Cersei Lannister</Label>}<br />
-                                {this.state.jaimeLannister === false ? null : <Label className="label-danger" onClick={unchosen7}>Jaime Lannister</Label>}<br />
-                                {this.state.tyrionLannister === false ? null : <Label className="label-danger" onClick={unchosen8}>Tyrion Lannister</Label>}<br />
-                                {this.state.samwellTarly === false ? null : <Label className="label-danger" onClick={unchosen9}>Samwell Tarly</Label>}<br />
-                                {this.state.gilly === false ? null : <Label className="label-danger" onClick={unchosen10}>Gilly</Label>}<br />
-                                {this.state.lordVarys === false ? null : <Label className="label-danger" onClick={unchosen11}>Lord</Label>}<br />
-                                {this.state.sandorClegane === false ? null : <Label className="label-danger" onClick={unchosen12}>Sandor Clegane</Label>}<br />
-                                {this.state.gregorClegane === false ? null : <Label className="label-danger" onClick={unchosen13}>Gregor Clegane</Label>}<br />
-                                {this.state.greyWorm === false ? null : <Label className="label-danger" onClick={unchosen14}>Grey</Label>}<br />
-                                {this.state.missandei === false ? null : <Label className="label-danger" onClick={unchosen15}>Missandei</Label>}<br />
-                                {this.state.serJorah === false ? null : <Label className="label-danger" onClick={unchosen16}>Ser Jorah</Label>}<br />
-                                {this.state.melisandre === false ? null : <Label className="label-danger" onClick={unchosen17}>Melisandre</Label>}<br />
-                                {this.state.theNightKing === false ? null : <Label className="label-danger" onClick={unchosen18}>The Night King</Label>}<br />
-                                {this.state.theonGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen19}>Theon Greyjoy</Label>}<br />
-                                {this.state.yaraGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen20}>Yara Greyjoy</Label>}<br />
-                                {this.state.euronGreyjoy === false ? null : <Label className="label-danger" onClick={unchosen21}>Euron Greyjoy</Label>}<br />
-                                {this.state.tormund === false ? null : <Label className="label-danger" onClick={unchosen22}>Tormund</Label>}<br />
-                                {this.state.brienneOfTarth === false ? null : <Label className="label-danger" onClick={unchosen23}>Brienne of Tarth</Label>}<br />
-                                {this.state.serDavosSeaworth === false ? null : <Label className="label-danger" onClick={unchosen24}>Ser Davos Seaworth</Label>}<br />
-                                {this.state.podrickPayne === false ? null : <Label className="label-danger" onClick={unchosen25}>Podrick Payne</Label>}<br />
-                                {this.state.meeraReed === false ? null : <Label className="label-danger" onClick={unchosen26}>Meera</Label>}<br />
-                                {this.state.gendry === false ? null : <Label className="label-danger" onClick={unchosen27}>Gendry</Label>}<br />
-                                {this.state.serBronn === false ? null : <Label className="label-danger" onClick={unchosen28}>Ser Bronn</Label>}<br />
-                                {this.state.daarioNaharis === false ? null : <Label className="label-danger" onClick={unchosen29}>Daario Naharis</Label>}<br />
-                                {this.state.bericDondarrion === false ? null : <Label className="label-danger" onClick={unchosen30}>Beric Dondarrion</Label>}<br />
-                            </Col>
-                        </Row>
-
-                        {
-                            this.state.pickCount === 10 ?
-                                <Row>
-                                    <Col xs={12} className="text-center">
-                                        <Button
-                                            type="submit"
-                                            value="Submit">
-                                            Confirm Selection
+                                this.state.pickCount === 10 ?
+                                    <Row>
+                                        <Col xs={12} className="text-center">
+                                            <Button
+                                                type="submit"
+                                                value="Submit">
+                                                Confirm Selection
                                         </Button>
-                                    </Col>
-                                </Row>
-                                :
-                                null
-                        }
-
-                        <Row>
-                            <Col xs={12} className="text-center">
-                                <Button
-                                    type="submit"
-                                    value="Submit">
-                                    Confirm Selection
-                                </Button>
-                            </Col>
-                        </Row>
+                                        </Col>
+                                    </Row>
+                                    :
+                                    null
+                            }
+                        </Form>
                     </Modal.Body>
                 </Modal>
 

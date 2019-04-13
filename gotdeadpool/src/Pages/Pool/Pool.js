@@ -44,7 +44,7 @@ class Pool extends Component {
             userID: this.props.user.uid,
             access: true,
             paid: false,
-            picks: "None",
+            picks: [],
         });
         this.setState({
             accessButton: "hide",
@@ -78,23 +78,27 @@ class Pool extends Component {
                         :
                         <div>
                             {
-                                this.state.paid === false ?
+                                this.state.paid === true ?
+                                    <div>
+                                        {
+                                            this.state.picks === [] ?
+                                                <p>you've picked already!</p>
+                                                :
+                                                <div>
+                                                    <Access userID={this.props.user.uid} />
+                                                    <p>Pick your characters</p>
+                                                </div>
+
+                                        }
+
+                                    </div>
+                                    :
                                     <Row>
                                         <Col md={12} className="text-center">
                                             <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
                                         </Col>
                                     </Row>
-                                    :
-                                    <div>
-                                        {
-                                            this.state.picks === "None" ? 
-                                            <Access userID={this.props.user.uid}/>
-                                            :
-                                            <p>you've picked already!</p>
 
-                                        }
-
-                                    </div>
                             }
 
                         </div>
