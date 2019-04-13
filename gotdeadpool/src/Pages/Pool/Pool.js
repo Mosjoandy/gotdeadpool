@@ -81,11 +81,11 @@ class Pool extends Component {
                                 this.state.paid === true ?
                                     <div>
                                         {
-                                            this.state.picks === [] ?
-                                                <p>you've picked already!</p>
+                                            this.state.inPool === false ?
+                                                <p>firebase show user picks</p>
                                                 :
-                                                <div>
-                                                    <Access userID={this.props.user.uid} />
+                                                <div className="text-center">
+                                                    <Access user={this.props.user.uid} />
                                                     <p>Pick your characters</p>
                                                 </div>
 
@@ -95,7 +95,7 @@ class Pool extends Component {
                                     :
                                     <Row>
                                         <Col md={12} className="text-center">
-                                            <Button bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
+                                            <Button style={{ marginRight: "auto", marginLeft: "auto" }} bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
                                         </Col>
                                     </Row>
 

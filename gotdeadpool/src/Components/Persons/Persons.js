@@ -33,10 +33,8 @@ class Persons extends Component {
                     userName: userPool[data].userName,
                 });
             };
-            console.log(newState)
             // Set new state of userPool with array of objects
             this.setState({ userPool: newState });
-            console.log(this.state.user)
         });
         var that = this
 
