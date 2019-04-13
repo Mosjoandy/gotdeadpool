@@ -31,7 +31,7 @@ class Pool extends Component {
                 that.setState({
                     paid: snapshot.val().paid,
                     picks: snapshot.val().picks
-                });
+                })
             } catch (err) {
                 console.log(err);
             };
