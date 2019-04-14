@@ -8,7 +8,7 @@ const Footer = () => (
             <Row>
                 <Col xs={12}>
 
-                    © 2019 Mosjoandy
+                    © 2019 Nicholas Chan
 
                 </Col>
             </Row>

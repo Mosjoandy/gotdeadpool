@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Topper from "../../Components/Topper/Topper";
 import {
     Grid,
-    Row, Button, Col, Modal, Image
+    Row, Button, Col, Modal, Image, Panel
 } from 'react-bootstrap';
 import Characters from "../../Components/Characters/Characters";
 import Persons from "../../Components/Persons/Persons";
@@ -18,6 +18,7 @@ class Pool extends Component {
             userExists: props.userExists,
             paid: null,
             picks: null,
+            inPool: null,
             accessButton: "show",
             show: false,
         };
@@ -26,11 +27,12 @@ class Pool extends Component {
 
     componentWillReceiveProps(props) {
         var that = this;
-        firebase.database().ref("pool/" + props.user.uid).on("value", function (snapshot) {
+        firebase.database().ref("pool/" + props.user.displayName).on("value", function (snapshot) {
             try {
                 that.setState({
                     paid: snapshot.val().paid,
-                    picks: snapshot.val().picks
+                    picks: snapshot.val().picks,
+                    inPool: snapshot.val().inPool.inPool,
                 })
             } catch (err) {
                 console.log(err);
@@ -39,13 +41,15 @@ class Pool extends Component {
     };
 
     requestAccess() {
-        firebase.database().ref("pool/" + this.props.user.uid).set({
+        firebase.database().ref("pool/" + this.props.user.displayName).set({
             userName: this.props.user.displayName,
             userID: this.props.user.uid,
             access: true,
-            paid: false,
-            picks: [],
-        });
+            paid: false
+        })
+        firebase.database().ref("pool/" + this.props.user.displayName + "/inPool/").set({
+            inPool: false
+        })
         this.setState({
             accessButton: "hide",
             show: true,
@@ -57,7 +61,6 @@ class Pool extends Component {
 
         return (
             <Grid>
-                {/* <Form /> */}
 
                 {
                     this.props.userExists === false ?
@@ -66,9 +69,7 @@ class Pool extends Component {
                         </div>
                         :
                         <div>
-
                             <Persons user={this.props.user.displayName} />
-                            <Characters />
                         </div>
                 }
 
@@ -80,29 +81,32 @@ class Pool extends Component {
                             {
                                 this.state.paid === true ?
                                     <div>
-                                        {
-                                            this.state.inPool === false ?
-                                                <p>firebase show user picks</p>
-                                                :
-                                                <div className="text-center">
-                                                    <Access user={this.props.user.uid} />
-                                                    <p>Pick your characters</p>
-                                                </div>
-
-                                        }
-
+                                        <Access user={this.props.user.displayName} inPool={this.state.inPool} picks={this.state.picks} />
                                     </div>
                                     :
                                     <Row>
-                                        <Col md={12} className="text-center">
-                                            <Button style={{ marginRight: "auto", marginLeft: "auto" }} bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
+                                        <Col xs={12} className="text-center">
+                                            <Panel>
+                                                <Panel.Heading>
+                                                    <h3 className="text-center">Your Deadpool</h3>
+                                                </Panel.Heading>
+                                                <Panel.Body>
+                                                    <Button style={{ marginRight: "auto", marginLeft: "auto" }} bsStyle="default" onClick={this.requestAccess}>Request to join</Button>
+                                                </Panel.Body>
+                                            </Panel>
                                         </Col>
                                     </Row>
-
                             }
-
                         </div>
                 }
+
+                {
+                    this.props.userExists === false ?
+                        null
+                        :
+                        <Characters />
+                }
+
 
                 <Modal
                     size="sm"

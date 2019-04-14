@@ -13,7 +13,7 @@ class Persons extends Component {
             show: false,
             user: props.user
         };
-        this.addUser = this.addUser.bind(this);
+        // this.addUser = this.addUser.bind(this);
     };
 
     componentWillMount() {
@@ -36,6 +36,7 @@ class Persons extends Component {
             // Set new state of userPool with array of objects
             this.setState({ userPool: newState });
         });
+
         var that = this
 
         firebase.database().ref("paidUserCount/").on("value", function (snapshot) {
@@ -47,19 +48,19 @@ class Persons extends Component {
         });
     };
 
-    addUser() {
-        var counter = (this.state.userCount + 1);
-        this.setState({ userCount: counter });
-        firebase.database().ref("paidUserCount/").set({
-            userCount: counter
-        });
+    // addUser() {
+    //     var counter = (this.state.userCount + 1);
+    //     this.setState({ userCount: counter });
+    //     firebase.database().ref("paidUserCount/").set({
+    //         userCount: counter
+    //     });
 
-        var cash = (this.state.prizePool + 10);
-        this.setState({ prizePool: cash });
-        firebase.database().ref("prizePool/").set({
-            prizePool: cash
-        });
-    };
+    //     var cash = (this.state.prizePool + 10);
+    //     this.setState({ prizePool: cash });
+    //     firebase.database().ref("prizePool/").set({
+    //         prizePool: cash
+    //     });
+    // };
 
     render() {
         let close = () => this.setState({ show: false });
@@ -83,7 +84,10 @@ class Persons extends Component {
                                 <h4>{this.state.user}</h4>
                                 {
                                     this.state.user === "Nicholas Chan" ?
-                                        <Button onClick={this.addUser}>Add Payee/Cash</Button>
+
+                                        <div>
+                                            {/* <Button onClick={this.addUser}>Add Payee/Cash</Button> */}
+                                        </div>
                                         :
                                         null
                                 }

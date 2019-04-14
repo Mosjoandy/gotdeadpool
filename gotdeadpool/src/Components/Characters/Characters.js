@@ -62,22 +62,25 @@ class Characters extends Component {
             <Row>
                 <Col xs={12}>
                     <Panel>
-                        <Panel.Heading>
-                            <h3 className="text-center">Characters</h3>
+                        <Panel.Heading className="text-center">
+                            <h3>Characters</h3>
+                            <p>Red is dead</p>
                         </Panel.Heading>
                         <Panel.Body>
                             <Row>
                                 <Col xs={6} className="text-left">
+                                <Button onClick={() => this.setState({ showAll: true })}>Show All</Button>
                                     <Button onClick={() => this.setState({ showStark: true })}>House Stark</Button>
                                     <Button onClick={() => this.setState({ showLannister: true })}>House Lannister</Button>
                                     <Button onClick={() => this.setState({ showTargaryen: true })}>House Targaryen</Button>
-                                    <Button onClick={() => this.setState({ showGreyjoy: true })}>House Greyjoy</Button>
+                                   
                                 </Col>
                                 <Col xs={6} className="text-right">
+                                <Button onClick={() => this.setState({ showGreyjoy: true })}>House Greyjoy</Button>
                                     <Button onClick={() => this.setState({ showTarly: true })}>House Tarly</Button>
-                                    <Button onClick={() => this.setState({ showFree_Folk: true })}>House Free Folk</Button>
-                                    <Button onClick={() => this.setState({ showOthers: true })}>House Others</Button>
-                                    <Button onClick={() => this.setState({ showAll: true })}>Show All</Button>
+                                    <Button onClick={() => this.setState({ showFree_Folk: true })}>Free Folk</Button>
+                                    <Button onClick={() => this.setState({ showOthers: true })}>Others</Button>
+                                 
                                 </Col>
                             </Row>
                         </Panel.Body>

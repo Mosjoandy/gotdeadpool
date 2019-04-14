@@ -19,18 +19,18 @@ class App extends Component {
       userExists: false,
     };
     this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
+    // this.logout = this.logout.bind(this);
   };
 
-  logout() {
-    auth.signOut()
-      .then(() => {
-        this.setState({
-          user: null,
-          userExists: false
-        });
-      });
-  };
+  // logout() {
+  //   auth.signOut()
+  //     .then(() => {
+  //       this.setState({
+  //         user: null,
+  //         userExists: false
+  //       });
+  //     });
+  // };
 
   login() {
     auth.signInWithPopup(googleProvider)
@@ -58,7 +58,7 @@ class App extends Component {
           <Nav>
             {
               this.state.userExists === true ?
-                <Button onClick={this.logout}>Logout</Button>
+                <Button href="/">Logout</Button>
                 :
                 <Button onClick={this.login}>Login</Button>
             }
