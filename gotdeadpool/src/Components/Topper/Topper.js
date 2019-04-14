@@ -26,7 +26,7 @@ const Topper = () => (
                     <p>We will keep track of who <b>DIES</b> up until the final episode. The person with the most characters <b>ALIVE</b> in their deadpool is the winner. </p>
 
                     <p>For example, Bob has selected Bran Stark, Arya Stark, and Sansa Stark. His friend John chooses Bran Stark, Cersei Lannister, and Jaime Lanniser.</p>
-                    <p>Hypothetically, at the end of Episode 5, only Bran and Arya Stark are alive. Bob wins the wager because he has two characters alive.</p>
+                    <p>Hypothetically, at the end of the season, only Bran and Arya Stark are alive. Bob wins the wager because he has two characters alive.</p>
 
                     <h4>Is this safe/legal?</h4>
                     <p>When you log in with your gmail account, all the data is passed through google. Google Authentication allows me only your name and email.</p>
