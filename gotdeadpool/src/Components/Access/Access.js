@@ -352,8 +352,7 @@ class Access extends Component {
                                     <Row>
                                         <Col xs={12} className="text-center">
                                             <h4>Instructions:</h4>
-                                            <div>Choose 10 characters you believe will survive till the end of</div>
-                                            <h2>EPISODE 5</h2>
+                                            <div>Choose 10 characters you believe will survive till the end of the season</div>
                                             <hr />
                                             <h3>Characters</h3>
                                         </Col>

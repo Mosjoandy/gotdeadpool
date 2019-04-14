@@ -23,8 +23,7 @@ const Topper = () => (
                     <p>Your wager is $10. More or less will disqualify you from participating.</p>
 
                     <h4>How do I win?</h4>
-                    <p>We will keep track of who <b>DIES</b> up until the final episode. I haven't decided if I want to make a final episode wager version of this website.</p>
-                    <p>At the end of Episode 5, the person with the most characters <b>ALIVE</b> in their deadpool is the winner. </p>
+                    <p>We will keep track of who <b>DIES</b> up until the final episode. The person with the most characters <b>ALIVE</b> in their deadpool is the winner. </p>
 
                     <p>For example, Bob has selected Bran Stark, Arya Stark, and Sansa Stark. His friend John chooses Bran Stark, Cersei Lannister, and Jaime Lanniser.</p>
                     <p>Hypothetically, at the end of Episode 5, only Bran and Arya Stark are alive. Bob wins the wager because he has two characters alive.</p>
