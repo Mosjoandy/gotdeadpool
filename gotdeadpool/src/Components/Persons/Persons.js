@@ -48,76 +48,104 @@ class Persons extends Component {
         });
     };
 
-    // addUser() {
-    //     var counter = (this.state.userCount + 1);
-    //     this.setState({ userCount: counter });
-    //     firebase.database().ref("paidUserCount/").set({
-    //         userCount: counter
-    //     });
-
-    //     var cash = (this.state.prizePool + 10);
-    //     this.setState({ prizePool: cash });
-    //     firebase.database().ref("prizePool/").set({
-    //         prizePool: cash
-    //     });
-    // };
-
     render() {
         let close = () => this.setState({ show: false });
 
         return (
+            <div>
+                <Row>
+                    <Col md={3}>
 
-            <Row>
-                <Col md={3}>
-                </Col>
+                    </Col>
 
-                <Col md={6}>
-                    <Panel>
-                        <Panel.Body>
-                            <Col md={6} className="text-center">
-                                <h3>Users in Pool: {this.state.userCount}</h3>
-                                <Button onClick={() => this.setState({ show: true })}>Show Users</Button>
-                            </Col>
+                    <Col md={6}>
+                        <Panel>
+                            <Panel.Body>
 
-                            <Col md={6} className="text-center">
-                                <h3>Pool Prize: ${this.state.prizePool}</h3>
-                                <h4>{this.state.user}</h4>
-                                {
-                                    this.state.user === "Nicholas Chan" ?
+                                <Col md={12} className="text-center">
+                                    <h3>
+                                        Confirmed Deaths:
+                                 </h3>
+                                    <p>
+                                        The Night King
+                                 </p>
+                                    <p>
+                                        Theon Greyjoy
+                                 </p>
+                                    <p>
+                                        Ser Jorah
+                                 </p>
+                                    <p>
+                                        Melisandre
+                                 </p>
+                                    <p>
+                                        Beric Dondarrion
+                                 </p>
+                                </Col>
+                            </Panel.Body>
+                        </Panel>
+                    </Col>
 
-                                        <div>
-                                            {/* <Button onClick={this.addUser}>Add Payee/Cash</Button> */}
-                                        </div>
-                                        :
-                                        null
-                                }
-                            </Col>
-                        </Panel.Body>
-                    </Panel>
-                </Col>
-
-                <Col md={3}>
-                </Col>
+                    <Col md={3}>
+                    </Col>
 
 
-                <Modal
-                    size="sm"
-                    show={this.state.show}
-                    onHide={close}
-                    aria-labelledby="modal-userPool"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title id="modal-userPool">Users In Pool</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <ul>
-                            {this.state.userPool.map((userPool, index) => (
-                                <li key={index}>{userPool.userName} {}</li>
-                            ))}
-                        </ul>
-                    </Modal.Body>
-                </Modal>
-            </Row>
+
+                </Row>
+
+                <Row>
+                    <Col md={3}>
+
+                    </Col>
+
+                    <Col md={6}>
+                        <Panel>
+                            <Panel.Body>
+                                <Col md={6} className="text-center">
+                                    <h3>Users in Pool: {this.state.userCount}</h3>
+                                    <Button onClick={() => this.setState({ show: true })}>Show Users</Button>
+                                </Col>
+
+                                <Col md={6} className="text-center">
+                                    <h3>Pool Prize: ${this.state.prizePool}</h3>
+                                    <h4>{this.state.user}</h4>
+                                    {
+                                        this.state.user === "Nicholas Chan" ?
+
+                                            <div>
+                                                {/* <Button onClick={this.addUser}>Add Payee/Cash</Button> */}
+                                            </div>
+                                            :
+                                            null
+                                    }
+                                </Col>
+                            </Panel.Body>
+                        </Panel>
+                    </Col>
+
+                    <Col md={3}>
+                    </Col>
+
+
+                    <Modal
+                        size="sm"
+                        show={this.state.show}
+                        onHide={close}
+                        aria-labelledby="modal-userPool"
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title id="modal-userPool">Users In Pool</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <ul>
+                                {this.state.userPool.map((userPool, index) => (
+                                    <li key={index}>{userPool.userName} {}</li>
+                                ))}
+                            </ul>
+                        </Modal.Body>
+                    </Modal>
+                </Row>
+            </div>
         )
     }
 
