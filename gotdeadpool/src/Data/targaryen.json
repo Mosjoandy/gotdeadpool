@@ -30,7 +30,7 @@
     {
         "stateName": "serJorah",
         "id": 5,
-        "alive": "default",
+        "alive": "danger",
         "name": "Ser Jorah",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/f/f5/706_Jorah_Profile.png/revision/latest/scale-to-width-down/350?cb=20170823224935"
     },
