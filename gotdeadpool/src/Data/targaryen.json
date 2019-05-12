@@ -23,7 +23,7 @@
     {
         "stateName": "missandei",
         "id": 4,
-        "alive": "default",
+        "alive": "danger",
         "name": "Missandei",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/0/0d/Profile-Missandei.PNG/revision/latest/scale-to-width-down/314?cb=20170818044646"
     },

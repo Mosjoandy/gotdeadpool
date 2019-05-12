@@ -17,7 +17,7 @@ const Topper = () => (
                     <h4>How do I play?</h4>
                     <p>Login using your gmail account and wait for approval.</p>
                     <p>Once approved, you may select 10 characters from a pool of 30.</p>
-                    <p>Confirm your deadpool picks and watch Game of Thrones</p>
+                    <p>Confirm your deadpool picks and watch Game of Thrones.</p>
 
                     <h4>What are the wagers?</h4>
                     <p>Your wager is $10. More or less will disqualify you from participating.</p>
@@ -30,7 +30,7 @@ const Topper = () => (
 
                     <h4>Is this safe/legal?</h4>
                     <p>When you log in with your gmail account, all the data is passed through google. Google Authentication allows me only your name and email.</p>
-                    <p>Totally. Friendly Wagers are legal last I checked (thanks internet)</p>
+                    <p>Totally. Friendly Wagers are legal last I checked (thanks internet).</p>
 
                     <h4>How do I know who is playing?</h4>
                     <p>There's a handy button that shows all the players who have paid and have deadpools.</p>

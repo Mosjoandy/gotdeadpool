@@ -81,6 +81,9 @@ class Persons extends Component {
                                     <p>
                                         Beric Dondarrion
                                  </p>
+                                    <p>
+                                        Missandei
+                                 </p>
                                 </Col>
                             </Panel.Body>
                         </Panel>
