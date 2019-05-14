@@ -62,32 +62,30 @@ class Persons extends Component {
                         <Panel>
                             <Panel.Body>
 
-                                <Col md={12} className="text-center">
-                                    <h3>Leaderboard</h3>
-                                    <Row>
-                                        <Col md={4}>
-                                            <h4>1. Jontue</h4>
-                                            <p>
-                                                Arya Stark<br/>
-                                                Brienne of Tarth<br/>
-                                                Daenerys Targaryen<br/>
-                                                Gendry<br/>
-                                                Meera Reed<br/>
-                                                Samwell Tarly<br/>
-                                                Sansa Stark<br/>
-                                                Ser Bronn<br/>
-                                                Tormund<br/>
-                                                Tyrion Lannister<br/>
-                                            </p>
-                                        </Col>
-                                        <Col md={4}>
-                                            <h3>2. Annette, Diana, Lyna</h3>
-                                        </Col>
-                                        <Col md={4}>
-                                            <h3>3. Belle, Gloria, Roel</h3>
-                                        </Col>
-                                    </Row>
-                                </Col>
+                            <Col md={12} className="text-center">
+                        <h3>Leaderboard</h3>
+                        <Row>
+                            <Col md={12}>
+                                <h3>1. Jontue</h3>
+                                <p>
+                                    Arya Stark<br />
+                                    Brienne of Tarth<br />
+                                    Daenerys Targaryen<br />
+                                    Gendry<br />
+                                    Meera Reed<br />
+                                    Samwell Tarly<br />
+                                    Sansa Stark<br />
+                                    Ser Bronn<br />
+                                    Tormund<br />
+                                    Tyrion Lannister<br />
+                                </p>
+                                <h4>2. Annette, Diana, Lyna</h4><br/>
+                                <h4>3. Belle, Gloria, Roel</h4><br/>
+
+                            </Col>
+                        </Row>
+                    </Col>
+
                             </Panel.Body>
                         </Panel>
                     </Col>

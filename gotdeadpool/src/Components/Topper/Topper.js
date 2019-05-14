@@ -43,7 +43,6 @@ const Topper = () => (
 
                     <h4>One last thing, what if TWO players have the same number of characters alive in their dead pool?</h4>
                     <p>The bounty is split!</p>
-
                 </Panel.Body>
             </Panel>
         </Col>
