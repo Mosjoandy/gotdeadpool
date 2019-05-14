@@ -9,7 +9,7 @@
     {
         "stateName": "lordVarys",
         "id": 2,
-        "alive": "default",
+        "alive": "danger",
         "name": "Lord Varys",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/5/58/Varys_Season_8.jpg/revision/latest/scale-to-width-down/333?cb=20190206212952"
     },

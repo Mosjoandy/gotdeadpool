@@ -15,7 +15,7 @@
     },
     {
         "stateName": "euronGreyjoy",
-        "alive": "default",
+        "alive": "danger",
         "id": 3,
         "name": "Euron Greyjoy",
         "image": "https://vignette.wikia.nocookie.net/gameofthrones/images/f/fc/Euron-Profile.PNG/revision/latest/scale-to-width-down/318?cb=20170916200257"
