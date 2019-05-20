@@ -9,6 +9,17 @@ const Topper = () => (
                 <Image style={{ marginRight: "auto", marginLeft: "auto" }} src={require("../../Data/deadpool.png")} alt="dp" />
             </Jumbotron>
 
+
+            <Panel>
+                <Panel.Body className="text-center">
+                    <h2>Thank you for playing in Nick's Deadpool</h2>
+                    <p>Log in to see the winners of the pool.</p>
+                    
+                    <h3 className="text-danger">DO NOT LOGIN if you have not seen the final episode of Game of Thrones</h3>
+                </Panel.Body>
+            </Panel>
+
+
             <Panel>
                 <Panel.Body>
                     <h4>What is this?</h4>

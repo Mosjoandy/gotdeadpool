@@ -62,29 +62,45 @@ class Persons extends Component {
                         <Panel>
                             <Panel.Body>
 
-                            <Col md={12} className="text-center">
-                        <h3>Leaderboard</h3>
-                        <Row>
-                            <Col md={12}>
-                                <h3>1. Jontue</h3>
-                                <p>
-                                    Arya Stark<br />
-                                    Brienne of Tarth<br />
-                                    Daenerys Targaryen<br />
-                                    Gendry<br />
-                                    Meera Reed<br />
-                                    Samwell Tarly<br />
-                                    Sansa Stark<br />
-                                    Ser Bronn<br />
-                                    Tormund<br />
-                                    Tyrion Lannister<br />
-                                </p>
-                                <h4>2. Annette, Diana, Lyna</h4><br/>
-                                <h4>3. Belle, Gloria, Roel</h4><br/>
+                                <Col md={12} className="text-center">
+                                    <Row>
+                                        <h3>Winners:</h3>
+                                        <Col md={6}>
 
-                            </Col>
-                        </Row>
-                    </Col>
+                                            <h4>Jontue</h4>
+                                            <p>
+                                                Arya Stark<br />
+                                                Brienne of Tarth<br />
+                                                <span className="text-danger">Daenerys Targaryen</span><br />
+                                                Gendry<br />
+                                                Meera Reed<br />
+                                                Samwell Tarly<br />
+                                                Sansa Stark<br />
+                                                Ser Bronn<br />
+                                                Tormund<br />
+                                                Tyrion Lannister<br />
+                                            </p>
+                                        </Col>
+                                        <Col md={6}>
+
+                                            <h4>Diana</h4>
+                                            <p>
+                                                Arya Stark<br />
+                                                Bran Stark<br />
+                                                Brienne of Tarth<br />
+                                                <span className="text-danger">Daenerys Targaryen</span><br />
+                                                Gendry<br />
+                                                Grey Worm<br />
+                                                Jon Snow<br />
+                                                Samwell Tarly<br />
+                                                Sansa Stark<br />
+                                                Tyrion Lannister<br />
+                                            </p>
+
+                                        </Col>
+                                        <h4>$120 split pot</h4>
+                                    </Row>
+                                </Col>
 
                             </Panel.Body>
                         </Panel>
