@@ -12,7 +12,7 @@ const Topper = () => (
 
             <Panel>
                 <Panel.Body className="text-center">
-                    <h2>Thank you for playing in Nick's Deadpool</h2>
+                    <h1>Thank you for playing in Nick's Deadpool</h1>
                     <p>Log in to see the winners of the pool.</p>
                     
                     <h3 className="text-danger">DO NOT LOGIN if you have not seen the final episode of Game of Thrones</h3>
